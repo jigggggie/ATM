@@ -10,13 +10,19 @@ public:
 	string name;		//예금주
 	string number;	//계좌번호
 
-	Account(string name, string number, string pass, int balance = 0) {
+	Account(string name = "", string number = "", string pass = "", int balance = 0) {
 		this->pass = pass;
 		this->number = number;
 		this->name = name;
 		this->balance = balance;
 	}
-
+	
+	void SetAccount(string name, string number, string pass, int balance) {
+		this->pass = pass;
+		this->number = number;
+		this->name = name;
+		this->balance = balance;
+	}
 
 	//입금, 출금, 송금, 조회하기
 	int Deposit(int money) {
