@@ -8,13 +8,19 @@ public:
 	int balance;		//잔액
 	string pass;		//비밀번호
 	string name;		//예금주
-	string number;	//계좌번호
+	string number;		//계좌번호
 
 	Account(string name = "", string number = "", string pass = "", int balance = 0) {
 		this->pass = pass;
 		this->number = number;
 		this->name = name;
 		this->balance = balance;
+	}
+	Account(Account & temp) {
+		this->pass = temp.pass;
+		this->number = temp.number;
+		this->name = temp.name;
+		this->balance = temp.balance;
 	}
 	
 	void SetAccount(string name, string number, string pass, int balance) {

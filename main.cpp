@@ -1,12 +1,6 @@
 #include "Account.h"
-
-extern string inputpasswords(void);
+extern int login();
 int main() {
-	string wow;
-
-	wow = inputpasswords();
-
-	cout << endl;
-	cout << wow << endl;
+	login();
+	return 0;
 }
-
