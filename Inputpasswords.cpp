@@ -10,8 +10,15 @@ string inputpasswords(void) {
 	cout << "Enter pass >> ";
 	ch = _getch();
 	while (ch != 13) {
-		pass.push_back(ch);
-		cout << "*";
+		if ((ch == 127 || ch == 8) && !pass.empty()) {
+			cout << "\b \b";
+			pass.pop_back();
+		}
+		else {
+			pass.push_back(ch);
+			cout << "*";
+		}	
+		
 		ch = _getch();
 	}
 	return pass;
