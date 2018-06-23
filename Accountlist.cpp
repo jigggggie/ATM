@@ -67,14 +67,20 @@ void Acc_list::showNode() {
 	pNode p = head;
 	while (p) {
 		for (int i = 0; i < AccountNum; i++) {
-			cout << i + 1 << "¹øÂ° °í°´´Ô" << endl;
-			cout << "°èÁÂ¹øÈ£ : " << p->data.number << endl;
-			cout << "ÀÌ    ¸§ : " << p->data.name << endl;
-			cout << "ÀÜ    ¾× : " << p->data.balance << endl;
-			cout << "ºñ¹Ð¹øÈ£ : " << p->data.pass << endl;
+			cout << i + 1 << "." << " " << "°èÁÂ¹øÈ£ : " << p->data.number << "   " << "ÀÌ¸§ : " << p->data.name << "   " << "ÀÜ¾× : " << p->data.balance << "   " << "ºñ¹Ð¹øÈ£ : " << p->data.pass << endl;
 			p = p->link;
 		}
 	}
+}
+
+pNode Acc_list::findNode(string f)
+{
+	pNode p = head;
+	while (p) {
+		if (p->data.number == f) return p;
+		p = p->link;
+	}
+	return NULL;
 }
 
 void Acc_list::set_AccountNum(int AccountNum)

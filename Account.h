@@ -55,13 +55,13 @@ public:
 		return money;
 	}
 
-	int Remmitance(Account * acc, string pass, int money) {
+	int Remitance(Account & acc, string pass, int money) {
 		int send = Withdraw(pass, money);
 		if (send == 0) {
 			cout << "잔액이 부족하거나 비밀번호를 확인하여 주십시오." << endl;
 			return 0;	//출금 실패로 인한 송금 실패
 		}
-		acc->Deposit(send);
+		acc.Deposit(send);
 		return 1;	//송금 성공
 	}
 	int Show(string pass) {

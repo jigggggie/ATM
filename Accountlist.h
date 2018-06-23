@@ -15,7 +15,7 @@ typedef struct Node {
 class Acc_list {
 public:
 	pNode head;
-	pNode curr;
+	pNode find;
 	int AccountNum;
 	int fileAccountNum;
 	ifstream fin;
@@ -26,6 +26,7 @@ public:
 	void addNode(const Account b);
 	void delNode(const Account b);
 	void showNode();
+	pNode findNode(string f);
 	void set_AccountNum(int AccountNum);
 	void set_head(pNode ptr);
 	int get_AccountNum();
