@@ -31,6 +31,5 @@ int admin() {
 		}
 	}
 	cout << endl << "성공적으로 로그아웃 되었습니다"; Sleep(500); cout << "."; Sleep(500); cout << "."; Sleep(500); cout << ".";
-	//list.fileAccountNum = list.AccountNum;
 	return 0;
 }

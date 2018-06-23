@@ -22,6 +22,15 @@ string inputpasswords(void) {
 	return pass;
 }
 
+void makeadmin() {
+	ofstream adminfout("supervisor.txt", ios::out);
+	string makeid, makepass;
+	cout << "<관리자 ID / 비밀번호 초기화 화면>" << endl;
+	cout << "ID를 입력하십시오 >> "; getline(cin, makeid);
+	cout << "비밀번호를 입력하십시오 >> "; getline(cin, makepass);
+	adminfout << makeid << "\n" << makepass;
+}
+
 int login() {
 	string adminid, adminpass; //관리자 아이디와 비밀번호 설정되어 있음.
 	string id, pass; //사용자가 입력할 아이디와 비밀번호.
@@ -34,18 +43,17 @@ int login() {
 	ifstream adminfin("supervisor.txt", ios::in); //만들어져있는 관리자 파일을 가져옴.
 	if (!adminfin)
 	{
-		cout << "관리자파일 열기 실패" << endl;
-		return 0;
+		makeadmin();
+		login();
 	}
 	adminfin >> adminid;
 	adminfin >> adminpass;
 
 
-	ifstream userfin("userid.txt"); //사용자 파일을 가져옴 관리자메뉴안에 사용자 만들기 기능이 있음 거기에 ofstream 쓰면 될 듯.
+	ifstream userfin("userid.txt", ios::in); //사용자 파일을 가져옴 관리자메뉴안에 사용자 만들기 기능이 있음 거기에 ofstream 쓰면 될 듯.
 	if (!userfin)
 	{
-		cout << "사용자파일 열기 실패" << endl;
-		return 0;
+		ofstream userfout("userid.txt", ios::out);
 	}
 	int fileAccountNum = lineoftxt("userid.txt") / 2;
 	string * userids = new string[fileAccountNum];
@@ -71,6 +79,7 @@ int login() {
 			{
 				cout << "\n관리자 로그인 성공!" << endl;
 				admin();
+				login();
 			}
 			else //id는 맞고 비번이 틀릴 때
 			{
@@ -96,6 +105,7 @@ int login() {
 				{
 					cout << "\n 사용자 로그인 성공!" << endl;
 					log = user(cnt);
+					login();
 				}
 
 			}

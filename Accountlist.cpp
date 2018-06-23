@@ -23,6 +23,7 @@ Acc_list::Acc_list() {
 }
 
 Acc_list::~Acc_list() {
+	fileAccountNum = AccountNum;
 	savelist();
 	fin.close();
 	fout.close();
@@ -59,28 +60,7 @@ void Acc_list::addNode(const Account b) {
 			pp->link = temp;
 		}
 	}
-
-	//while (p->link) p = p->link;
-	//p->link = temp;
 }
-//void Acc_list::addNode(const Account b) {
-//	++AccountNum;
-//
-//	pNode p = this->head;
-//
-//	pNode temp = new Node;
-//	temp->data = b;
-//	temp->link = NULL;
-//
-//	if (head == NULL) {
-//		head = temp;
-//		return;
-//	}
-//
-//	while (p->link) p = p->link;
-//	p->link = temp;
-//}
-
 
 void Acc_list::delNode(const Account b) {
 	pNode p = this->head;
