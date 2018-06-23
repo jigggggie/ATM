@@ -26,6 +26,7 @@ int login() {
 	string adminid, adminpass; //관리자 아이디와 비밀번호 설정되어 있음.
 	string id, pass; //사용자가 입력할 아이디와 비밀번호.
 	string userid, userpass; //사용자 아이디와 비밀번호
+	int log = 1;
 
 	int passcnt = 0; //틀린횟수 카운트
 
@@ -93,11 +94,11 @@ int login() {
 				if (userids[cnt] == id && userpasss[cnt] == pass)
 				{
 					cout << "\n 사용자 로그인 성공!" << endl;
-					user(cnt);
+					log = user(cnt);
 				}
 
 			}
-			if (!(adminpass == pass))
+			if (!(adminpass == pass) && log == 1)
 			{
 				++passcnt;
 				cout << "\n아이디 혹은 비밀번호가 " << passcnt << "회 틀렸습니다." << endl;
