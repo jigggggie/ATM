@@ -13,6 +13,7 @@ int lineoftxt(char* txtfile) {
 
 Acc_list::Acc_list() {
 	head = NULL;
+	curr = NULL;
 	AccountNum = 0;
 	fileAccountNum = lineoftxt("Acc_list.txt") / 4;
 	fin.open("Acc_list.txt", ios::in);
@@ -20,16 +21,19 @@ Acc_list::Acc_list() {
 	fout.open("Acc_list.txt", ios::out);
 	user.open("userid.txt", ios::out);
 }
+
 Acc_list::~Acc_list() {
 	savelist();
 	fin.close();
 	fout.close();
 	user.close();
 }
+
 void Acc_list::addNode(const Account b) {
-	AccountNum++;
+	++AccountNum;
 
 	pNode p = this->head;
+	pNode pp = NULL;
 
 	pNode temp = new Node;
 	temp->data = b;
@@ -39,10 +43,44 @@ void Acc_list::addNode(const Account b) {
 		head = temp;
 		return;
 	}
+	
+	else {
+		if (temp->data.name < p->data.name) {
+			temp->link = head;
+			head = temp;
+		}
+		else {
+			p = head;
+			while (p != NULL && b.name > p->data.name) {
+				pp = p;
+				p = p->link;
+			}
+			temp->link = pp->link;
+			pp->link = temp;
+		}
+	}
 
-	while (p->link) p = p->link;
-	p->link = temp;
+	//while (p->link) p = p->link;
+	//p->link = temp;
 }
+//void Acc_list::addNode(const Account b) {
+//	++AccountNum;
+//
+//	pNode p = this->head;
+//
+//	pNode temp = new Node;
+//	temp->data = b;
+//	temp->link = NULL;
+//
+//	if (head == NULL) {
+//		head = temp;
+//		return;
+//	}
+//
+//	while (p->link) p = p->link;
+//	p->link = temp;
+//}
+
 
 void Acc_list::delNode(const Account b) {
 	pNode p = this->head;

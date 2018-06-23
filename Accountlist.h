@@ -15,7 +15,7 @@ typedef struct Node {
 class Acc_list {
 public:
 	pNode head;
-	pNode find;
+	pNode curr;
 	int AccountNum;
 	int fileAccountNum;
 	ifstream fin;

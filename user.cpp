@@ -49,6 +49,7 @@ int user(int cnt) {
 			break;
 		case 4:
 			cout << "비밀번호를 입력하여 주십시오 : "; cin.ignore(); pass = inputpasswords(); cout << endl;
+			cout << endl;
 			user->data.Show(pass);
 			break;
 		case 5:
