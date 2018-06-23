@@ -43,7 +43,7 @@ int user(int cnt) {
 			cout << "비밀번호를 입력하여 주십시오 : "; pass = inputpasswords();
 			cout << "송금하실 금액을 입력해주세요 : "; cin >> don;
 			if (temp) {
-				user->data.Remitance(temp->data, pass, don);
+				user->data.Remittance(temp->data, pass, don);
 			}
 			else cout << "계좌를 확인하여 주십시오." << endl;
 			break;

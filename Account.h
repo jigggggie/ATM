@@ -55,7 +55,7 @@ public:
 		return money;
 	}
 
-	int Remitance(Account & acc, string pass, int money) {
+	int Remittance(Account & acc, string pass, int money) {
 		int send = Withdraw(pass, money);
 		if (send == 0) {
 			cout << "잔액이 부족하거나 비밀번호를 확인하여 주십시오." << endl;
