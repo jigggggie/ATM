@@ -101,21 +101,6 @@ pNode Acc_list::findNode(string f)
 	return NULL;
 }
 
-void Acc_list::set_AccountNum(int AccountNum)
-{
-	this->AccountNum = AccountNum;
-}
-
-void Acc_list::set_head(pNode ptr)
-{
-	this->head = ptr;
-}
-
-int Acc_list::get_AccountNum()
-{
-	return this->AccountNum;
-}
-
 pNode Acc_list::get_head()
 {
 	return this->head;

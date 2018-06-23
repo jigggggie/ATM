@@ -30,22 +30,34 @@ int user(int cnt) {
 		case 1:
 			cout << "입금하실 금액을 입력해주세요 : "; cin >> don;
 			user->data.Deposit(don);
+			user->data.Show(user->data.pass);
 			break;
 		case 2:
 			cout << "비밀번호를 입력하여 주십시오."; cin.ignore(); pass = inputpasswords(); cout << endl;
 			cout << "출금하실 금액을 입력해주세요 : "; cin >> don;
-			if (!(user->data.Withdraw(pass, don))) cout << "출금 실패...;;ㄲㅂ" << endl;
-			else cout << "출금 완료!" << endl;
+			if (!(user->data.Withdraw(pass, don)))
+			{
+				cout << "출금 실패...;;ㄲㅂ" << endl;
+				user->data.Show(user->data.pass);
+			}
+			else {
+				cout << "출금 완료!" << endl;
+				user->data.Show(user->data.pass);
+			}
 			break;
 		case 3:
 			cout << "송금할 계좌를 입력하여 주십시오 : "; cin.ignore(); getline(cin, f);
 			temp = list.findNode(f);
 			cout << "비밀번호를 입력하여 주십시오 : "; pass = inputpasswords();
-			cout << "송금하실 금액을 입력해주세요 : "; cin >> don;
+			cout << endl <<"송금하실 금액을 입력해주세요 : "; cin >> don;
 			if (temp) {
 				user->data.Remittance(temp->data, pass, don);
+				user->data.Show(user->data.pass);
 			}
-			else cout << "계좌를 확인하여 주십시오." << endl;
+			else {
+				cout << "계좌를 확인하여 주십시오." << endl;
+				user->data.Show(user->data.pass);
+			} 
 			break;
 		case 4:
 			cout << "비밀번호를 입력하여 주십시오 : "; cin.ignore(); pass = inputpasswords(); cout << endl;

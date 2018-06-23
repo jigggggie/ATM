@@ -27,9 +27,6 @@ public:
 	void delNode(const Account b);
 	void showNode();
 	pNode findNode(string f);
-	void set_AccountNum(int AccountNum);
-	void set_head(pNode ptr);
-	int get_AccountNum();
 	pNode get_head();
 	void savelist();
 	void loadlist();
